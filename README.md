@@ -2,13 +2,13 @@
 
 ##  Run Nodes
 
-# Node 1 (port 8080)
+## Node 1 (port 8080)
 
 ```bash
 $ go run main.go --port=8080
 ```
 
-# Node 2 (port 8081) connecting to Node 1
+## Node 2 (port 8081) connecting to Node 1
 
 ```bash
 go run main.go --port=8081 --peers=localhost:8080 
@@ -38,15 +38,15 @@ http://localhost:8080/records
 curl http://localhost:8080/blocks
 ```
 
-## Expose Node Publicly via ngrok (Optional)
+# Expose Node Publicly via ngrok (Optional)
 
-# Expose local node on port 8080
+## Expose local node on port 8080
 
 ```bash
 ngrok http 8080
 ```
 
-# Example usage via public URL from ngrok
+## Example usage via public URL from ngrok
 
 ```bash
 curl https://abcd1234.ngrok.io/blocks
