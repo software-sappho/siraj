@@ -1,36 +1,62 @@
 # Siraj Blockchain Demo Commands
 
-## 1️⃣ Run Nodes
+##  Run Nodes
 
 # Node 1 (port 8080)
-go run main.go --port=8080
+
+```bash
+$ go run main.go --port=8080
+```
 
 # Node 2 (port 8081) connecting to Node 1
-go run main.go --port=8081 --peers=localhost:8080
 
+```bash
+go run main.go --port=8081 --peers=localhost:8080 
+```
+## Access User Ledger
 
-## 2️⃣ Add Verification Records
+```bash
+curl http://localhost:8080/user_ledger?user_id=u123
+```
 
+## Add Verification Records
+
+```bash
 curl -X POST -H "Content-Type: application/json" \
 -d '{"user_id":"u123","document_hash":"abcd1234","status":"verified"}' \
 http://localhost:8080/records
-
+```
+```bash
 curl -X POST -H "Content-Type: application/json" \
 -d '{"user_id":"u1234","document_hash":"abcd5678","status":"verified"}' \
 http://localhost:8080/records
+```
 
-## 3️⃣ View Full Blockchain
+##  View Full Blockchain
 
+## View Full Blockchain
+
+```bash
 curl http://localhost:8080/blocks
+```
 
-## 5️⃣ Expose Node Publicly via ngrok (Optional)
+## Expose Node Publicly via ngrok (Optional)
 
 # Expose local node on port 8080
+
+```bash
 ngrok http 8080
+```
 
 # Example usage via public URL from ngrok
+
+```bash
 curl https://abcd1234.ngrok.io/blocks
+```
+
+```bash
 curl "https://abcd1234.ngrok.io/user_ledger?user_id=u123"
+```
 
 ## Notes
 
